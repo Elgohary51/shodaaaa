@@ -8,33 +8,12 @@ var settings = {
         size:      45,
     },
     colors: {
-    primary: '#e63946', // bright red
-    secondary: '#d62828', // deep red
-    accent: '#f8ad9d', // soft peach
-    background: '#ffe5d9' // warm cream
-}
+        primary: '#e63946', // bright red
+        secondary: '#d62828', // deep red
+        accent: '#f8ad9d', // soft peach
+        background: '#ffe5d9' // warm cream
+    }
 };
-
-// Update the background color in main.css
-html, body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    background: #ffe9e9; /* Match with background color */
-}
-
-/* Add a subtle gradient overlay */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, transparent 0%, #ffd9d9 100%);
-    pointer-events: none;
-    z-index: 0;
-}
 
 // Romantic messages to cycle through
 var loveMessages = [
@@ -51,15 +30,17 @@ var loveMessages = [
 var messageIndex = 0;
 var messageElement = document.getElementById('loveMessage');
 
-// Cycle through messages
-setInterval(function() {
-    messageIndex = (messageIndex + 1) % loveMessages.length;
-    messageElement.style.opacity = '0';
-    setTimeout(function() {
-        messageElement.textContent = loveMessages[messageIndex];
-        messageElement.style.opacity = '1';
-    }, 500);
-}, 4000);
+// Cycle through messages (only if element exists)
+if (messageElement) {
+    setInterval(function() {
+        messageIndex = (messageIndex + 1) % loveMessages.length;
+        messageElement.style.opacity = '0';
+        setTimeout(function() {
+            messageElement.textContent = loveMessages[messageIndex];
+            messageElement.style.opacity = '1';
+        }, 500);
+    }, 4000);
+}
 
 /*
  * RequestAnimationFrame polyfill by Erik Möller
@@ -128,9 +109,9 @@ var Particle = (function() {
         var size = image.width * ease(this.age / settings.particles.duration);
         context.globalAlpha = 1 - this.age / settings.particles.duration;
         
-        // Add a subtle glow effect
+        // Add a subtle glow effect with color from settings
         context.shadowBlur = 15;
-        context.shadowColor = '#ff69b4';
+        context.shadowColor = settings.colors.primary;
         
         context.drawImage(image, this.position.x - size / 2, this.position.y - size / 2, size, size);
         
@@ -285,5 +266,7 @@ var ParticlePool = (function() {
     }, 10);
     
     // Add initial message
-    messageElement.textContent = loveMessages[0];
+    if (messageElement) {
+        messageElement.textContent = loveMessages[0];
+    }
 })(document.getElementById('pinkboard'));
