@@ -8,11 +8,11 @@ var settings = {
         size:      45,
     },
     colors: {
-        primary: '#ff758f', // coral pink
-        secondary: '#ff6b6b', // warm coral
-        accent: '#fbc2c2', // soft peach
-        background: '#ffe9e9' // light peach
-    }
+    primary: '#e63946', // bright red
+    secondary: '#d62828', // deep red
+    accent: '#f8ad9d', // soft peach
+    background: '#ffe5d9' // warm cream
+}
 };
 
 // Update the background color in main.css
