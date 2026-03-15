@@ -8,10 +8,11 @@ var settings = {
         size:      45, // slightly larger
     },
     colors: {
-        primary: '#ff69b4', // hot pink
-        secondary: '#ff1493', // deep pink
-        accent: '#ffb6c1', // light pink
-    }
+    primary: '#ff4d6d', // vibrant pink-red
+    secondary: '#c9184a', // deep rose
+    accent: '#ffb3c6', // soft blush
+    background: '#fff0f3' // light pink background
+}
 };
 
 // Romantic messages to cycle through
