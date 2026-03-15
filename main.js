@@ -1,19 +1,40 @@
-// Enhanced main.js
+// Update the settings in main.js
 var settings = {
     particles: {
-        length:   5000, // increased for more particles
-        duration:   12, // longer duration
-        velocity: 60, // slightly faster
-        effect: -0.95, // more dramatic effect
-        size:      45, // slightly larger
+        length:   5000,
+        duration:   12,
+        velocity: 60,
+        effect: -0.95,
+        size:      45,
     },
     colors: {
-    primary: '#ff4d6d', // vibrant pink-red
-    secondary: '#c9184a', // deep rose
-    accent: '#ffb3c6', // soft blush
-    background: '#fff0f3' // light pink background
-}
+        primary: '#ff758f', // coral pink
+        secondary: '#ff6b6b', // warm coral
+        accent: '#fbc2c2', // soft peach
+        background: '#ffe9e9' // light peach
+    }
 };
+
+// Update the background color in main.css
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: #ffe9e9; /* Match with background color */
+}
+
+/* Add a subtle gradient overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, #ffd9d9 100%);
+    pointer-events: none;
+    z-index: 0;
+}
 
 // Romantic messages to cycle through
 var loveMessages = [
